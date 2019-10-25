@@ -1,0 +1,44 @@
+{
+  "name": "as-umd-module",
+  "version": "1.0.0",
+  "license": "Apache-2.0",
+  "author": "lopatnov",
+  "description": "JavaScript to umd module string converter",
+  "homepage": "https://github.com/lopatnov/as-umd-module#readme",
+  "main": "dist/as-umd-module.js",
+  "module": "dist/as-umd-module.es.js",
+  "typings": "dist/types/as-umd-module.d.ts",
+  "files": [
+    "dist"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lopatnov/as-umd-module.git"
+  },
+  "bugs": {
+    "url": "https://github.com/lopatnov/as-umd-module/issues"
+  },
+  "scripts": {
+    "build": "tsc --module commonjs && rollup -c rollup.config.ts && typedoc --out docs --target es6 --theme minimal --mode file src",
+    "test": "jest"
+  },
+  "dependencies": {
+    "get-internal-type": "^1.2.0",
+    "javascripttostring": "^1.5.3"
+  },
+  "devDependencies": {
+    "@types/jest": "^24.0.19",
+    "@types/node": "^12.11.7",
+    "jest": "^24.9.0",
+    "jest-config": "^24.9.0",
+    "rollup": "^1.25.2",
+    "rollup-plugin-commonjs": "^10.1.0",
+    "rollup-plugin-json": "^4.0.0",
+    "rollup-plugin-node-resolve": "^5.2.0",
+    "rollup-plugin-sourcemaps": "^0.4.2",
+    "rollup-plugin-typescript2": "^0.24.3",
+    "ts-jest": "^24.1.0",
+    "typedoc": "^0.15.0",
+    "typescript": "^3.6.4"
+  }
+}
