@@ -46,7 +46,7 @@ let umdModule = asUmdModule({
 });
 ```
 
-Expected result of umdModule variable is like
+Expected result of umdModule variable is string like
 
 ```
 "(function (global, factory) {
