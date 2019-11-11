@@ -49,6 +49,8 @@ let umdModule = asUmdModule({
         return a * b;
     }
 });
+
+console.log(umdModule);
 ```
 
 Expected result of umdModule variable is string like
