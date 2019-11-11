@@ -1,6 +1,6 @@
 # as-umd-module
 
-JavaScript to umd module string converter
+A TypeScript library. It converts JavaScript values to a UMD formatted string.
 
 # Install
 
