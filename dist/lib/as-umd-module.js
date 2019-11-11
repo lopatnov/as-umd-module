@@ -12,7 +12,7 @@ function asUmdModule() {
     var moduleBody = "";
     for (var _a = 0, values_1 = values; _a < values_1.length; _a++) {
         var mv = values_1[_a];
-        moduleBody += "exports." + mv.name + " = " + javascripttostring_1.default(mv.exports);
+        moduleBody += "exports." + mv.name + " = " + javascripttostring_1.default(mv.exports) + ";\n";
     }
     return "(function (global, factory) {\n        typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports) :\n        typeof define === 'function' && define.amd ? define(['exports'], factory) :\n        (global = global || self, factory(global));\n    }(this, function (exports) { 'use strict';\n        " + moduleBody + "\n        Object.defineProperty(exports, '__esModule', { value: true });\n    }));";
 }

@@ -2392,6 +2392,60 @@ img {
 				<h1>as-umd-module</h1>
 			</a>
 			<p>JavaScript to umd module string converter</p>
+			<a href="#install" id="install" style="color: inherit; text-decoration: none;">
+				<h1>Install</h1>
+			</a>
+			<pre><code><span class="hljs-built_in">npm</span> i <span class="hljs-keyword">as</span>-umd-<span class="hljs-built_in">module</span></code></pre>
+			<a href="#import-package-to-the-project" id="import-package-to-the-project" style="color: inherit; text-decoration: none;">
+				<h2>Import package to the project</h2>
+			</a>
+			<pre><code><span class="hljs-keyword">import</span> asUmdModule <span class="hljs-keyword">from</span> <span class="hljs-string">"as-umd-module"</span>;</code></pre>
+			<a href="#convert-javascript-values-into-umd-module-string" id="convert-javascript-values-into-umd-module-string" style="color: inherit; text-decoration: none;">
+				<h2>Convert JavaScript values into umd module string</h2>
+			</a>
+			<p><strong>asUmdModule(...values: IModuleValue[]): string</strong></p>
+			<p>where</p>
+			<pre><code><span class="hljs-selector-tag">interface</span> <span class="hljs-selector-tag">IModuleValue</span> {
+  <span class="hljs-attribute">name</span>: string;
+  <span class="hljs-attribute">exports</span>: any;
+}</code></pre><p>Example of using:</p>
+			<pre><code><span class="hljs-keyword">let</span> umdModule = asUmdModule({
+    <span class="hljs-attr">name</span>: <span class="hljs-string">"onmessage"</span>,
+    <span class="hljs-attr">exports</span>: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">e</span>) </span>{
+        <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'Worker: Message received from main script'</span>);
+        <span class="hljs-keyword">let</span> result = e.data[<span class="hljs-number">0</span>] * e.data[<span class="hljs-number">1</span>];
+        <span class="hljs-keyword">if</span> (<span class="hljs-built_in">isNaN</span>(result)) {
+            postMessage(<span class="hljs-string">'Please write two numbers'</span>);
+        } <span class="hljs-keyword">else</span> {
+            <span class="hljs-keyword">let</span> workerResult = <span class="hljs-string">'Result: '</span> + result;
+            <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'Worker: Posting message back to main script'</span>);
+            postMessage(workerResult);
+        }
+    }
+});</code></pre><p>Expected result of umdModule variable is string like</p>
+			<pre><code><span class="hljs-string">"(function (global, factory) {
+        typeof exports === '</span>object' &amp;&amp; typeof module !== <span class="hljs-string">'undefined'</span> ? factory(exports) :
+        typeof define === <span class="hljs-string">'function'</span> &amp;&amp; define.amd ? define([<span class="hljs-string">'exports'</span>], factory) :
+        (<span class="hljs-keyword">global</span> = <span class="hljs-keyword">global</span> || self, factory(<span class="hljs-keyword">global</span>));
+    }(this, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(exports)</span> { '<span class="hljs-title">use</span> <span class="hljs-title">strict</span>';</span>
+        exports.onmessage = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(e)</span> {</span>
+            console.<span class="hljs-built_in">log</span>(<span class="hljs-string">'Worker: Message received from main script'</span>);
+            let result = e.data[<span class="hljs-number">0</span>] * e.data[<span class="hljs-number">1</span>];
+            <span class="hljs-keyword">if</span> (isNaN(result)) {
+                postMessage(<span class="hljs-string">'Please write two numbers'</span>);
+            } <span class="hljs-keyword">else</span> {
+                let workerResult = <span class="hljs-string">'Result: '</span> + result;
+                console.<span class="hljs-built_in">log</span>(<span class="hljs-string">'Worker: Posting message back to main script'</span>);
+                postMessage(workerResult);
+            }
+        }
+        Object.defineProperty(exports, <span class="hljs-string">'__esModule'</span>, { value: true });
+    }));<span class="hljs-string">"</span></code></pre>
+			<a href="#rights-and-agreements" id="rights-and-agreements" style="color: inherit; text-decoration: none;">
+				<h1>Rights and Agreements</h1>
+			</a>
+			<p>License <a href="https://github.com/lopatnov/as-umd-module/blob/master/LICENSE">Apache-2.0</a></p>
+			<p>Copyright 2019 Oleksandr Lopatnov</p>
 		</div>
 		<section class="tsd-panel-group tsd-index-group">
 			<h2>Index</h2>
@@ -2424,7 +2478,7 @@ img {
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in as-umd-module.ts:8</li>
+								<li>Defined in <a href="https://github.com/lopatnov/as-umd-module/blob/412cfec/src/as-umd-module.ts#L8">as-umd-module.ts:8</a></li>
 							</ul>
 						</aside>
 						<h4 class="tsd-parameters-title">Parameters</h4>

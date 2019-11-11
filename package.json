@@ -1,6 +1,6 @@
 {
   "name": "as-umd-module",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "license": "Apache-2.0",
   "author": "lopatnov",
   "description": "JavaScript to umd module string converter",
@@ -23,8 +23,8 @@
     "test": "jest"
   },
   "dependencies": {
-    "get-internal-type": "^1.2.0",
-    "javascripttostring": "^1.5.3"
+    "get-internal-type": "^1.5.2",
+    "javascripttostring": "^1.6.0"
   },
   "devDependencies": {
     "@types/jest": "^24.0.19",

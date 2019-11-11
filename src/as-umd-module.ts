@@ -9,7 +9,7 @@ function asUmdModule(...values: IModuleValue[]): string {
   let moduleBody = "";
 
   for (let mv of values) {
-      moduleBody += `exports.${mv.name} = ${stringify(mv.exports)}`
+      moduleBody += `exports.${mv.name} = ${stringify(mv.exports)};\n`
   }
 
   return `(function (global, factory) {

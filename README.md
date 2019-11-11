@@ -34,7 +34,7 @@ let umdModule = asUmdModule({
     name: "onmessage",
     exports: function(e) {
         console.log('Worker: Message received from main script');
-        let result = e.data[0] * e.data[1];
+        let result = multiply(e.data[0], e.data[1]);
         if (isNaN(result)) {
             postMessage('Please write two numbers');
         } else {
@@ -42,6 +42,11 @@ let umdModule = asUmdModule({
             console.log('Worker: Posting message back to main script');
             postMessage(workerResult);
         }
+    }
+}, {
+    name: "multiply",
+    exports: function(a, b) {
+        return a * b;
     }
 });
 ```
@@ -54,19 +59,23 @@ Expected result of umdModule variable is string like
         typeof define === 'function' && define.amd ? define(['exports'], factory) :
         (global = global || self, factory(global));
     }(this, function (exports) { 'use strict';
-        exports.onmessage = function(e) {
-            console.log('Worker: Message received from main script');
-            let result = e.data[0] * e.data[1];
-            if (isNaN(result)) {
-                postMessage('Please write two numbers');
-            } else {
-                let workerResult = 'Result: ' + result;
-                console.log('Worker: Posting message back to main script');
-                postMessage(workerResult);
-            }
+    exports.onmessage = function(e) {
+        console.log('Worker: Message received from main script');
+        let result = multiply(e.data[0], e.data[1]);
+        if (isNaN(result)) {
+            postMessage('Please write two numbers');
+        } else {
+            let workerResult = 'Result: ' + result;
+            console.log('Worker: Posting message back to main script');
+            postMessage(workerResult);
         }
-        Object.defineProperty(exports, '__esModule', { value: true });
-    }));"
+    };
+    exports.multiply = function(a, b) {
+        return a * b;
+    };
+
+    Object.defineProperty(exports, '__esModule', { value: true });
+}));"
 ```
 
 # Rights and Agreements
