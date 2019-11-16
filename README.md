@@ -4,14 +4,34 @@ A TypeScript library. It converts JavaScript values to a UMD formatted string.
 
 # Install
 
+Node:
+
+[npmjs repository](//www.npmjs.com/package/as-umd-module)
+
 ```shell
 npm i as-umd-module
+```
+
+[github repository](//github.com/lopatnov/as-umd-module/packages)
+
+```shell
+npm install @lopatnov/as-umd-module
+```
+
+Browser:
+
+```html
+<script src="<path to library>/as-umd-module.js"></script>
 ```
 
 ## Import package to the project
 
 ```typescript
 import asUmdModule from "as-umd-module";
+```
+or
+```javascript
+var asUmdModule = require("as-umd-module")
 ```
 
 ## Convert JavaScript values into umd module string
