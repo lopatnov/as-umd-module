@@ -2391,7 +2391,7 @@ img {
 			<a href="#as-umd-module" id="as-umd-module" style="color: inherit; text-decoration: none;">
 				<h1>as-umd-module</h1>
 			</a>
-			<p>JavaScript to umd module string converter</p>
+			<p>A TypeScript library. It converts JavaScript values to a UMD formatted string.</p>
 			<a href="#install" id="install" style="color: inherit; text-decoration: none;">
 				<h1>Install</h1>
 			</a>
@@ -2413,7 +2413,7 @@ img {
     <span class="hljs-attr">name</span>: <span class="hljs-string">"onmessage"</span>,
     <span class="hljs-attr">exports</span>: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">e</span>) </span>{
         <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'Worker: Message received from main script'</span>);
-        <span class="hljs-keyword">let</span> result = e.data[<span class="hljs-number">0</span>] * e.data[<span class="hljs-number">1</span>];
+        <span class="hljs-keyword">let</span> result = multiply(e.data[<span class="hljs-number">0</span>], e.data[<span class="hljs-number">1</span>]);
         <span class="hljs-keyword">if</span> (<span class="hljs-built_in">isNaN</span>(result)) {
             postMessage(<span class="hljs-string">'Please write two numbers'</span>);
         } <span class="hljs-keyword">else</span> {
@@ -2422,25 +2422,111 @@ img {
             postMessage(workerResult);
         }
     }
-});</code></pre><p>Expected result of umdModule variable is string like</p>
+}, {
+    <span class="hljs-attr">name</span>: <span class="hljs-string">"multiply"</span>,
+    <span class="hljs-attr">exports</span>: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">a, b</span>) </span>{
+        <span class="hljs-keyword">return</span> a * b;
+    }
+});
+
+<span class="hljs-built_in">console</span>.log(umdModule);</code></pre><p>Expected result of umdModule variable is string like</p>
 			<pre><code><span class="hljs-string">"(function (global, factory) {
         typeof exports === '</span>object' &amp;&amp; typeof module !== <span class="hljs-string">'undefined'</span> ? factory(exports) :
         typeof define === <span class="hljs-string">'function'</span> &amp;&amp; define.amd ? define([<span class="hljs-string">'exports'</span>], factory) :
         (<span class="hljs-keyword">global</span> = <span class="hljs-keyword">global</span> || self, factory(<span class="hljs-keyword">global</span>));
     }(this, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(exports)</span> { '<span class="hljs-title">use</span> <span class="hljs-title">strict</span>';</span>
-        exports.onmessage = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(e)</span> {</span>
-            console.<span class="hljs-built_in">log</span>(<span class="hljs-string">'Worker: Message received from main script'</span>);
-            let result = e.data[<span class="hljs-number">0</span>] * e.data[<span class="hljs-number">1</span>];
-            <span class="hljs-keyword">if</span> (isNaN(result)) {
-                postMessage(<span class="hljs-string">'Please write two numbers'</span>);
-            } <span class="hljs-keyword">else</span> {
-                let workerResult = <span class="hljs-string">'Result: '</span> + result;
-                console.<span class="hljs-built_in">log</span>(<span class="hljs-string">'Worker: Posting message back to main script'</span>);
-                postMessage(workerResult);
-            }
+    exports.onmessage = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(e)</span> {</span>
+        console.<span class="hljs-built_in">log</span>(<span class="hljs-string">'Worker: Message received from main script'</span>);
+        let result = multiply(e.data[<span class="hljs-number">0</span>], e.data[<span class="hljs-number">1</span>]);
+        <span class="hljs-keyword">if</span> (isNaN(result)) {
+            postMessage(<span class="hljs-string">'Please write two numbers'</span>);
+        } <span class="hljs-keyword">else</span> {
+            let workerResult = <span class="hljs-string">'Result: '</span> + result;
+            console.<span class="hljs-built_in">log</span>(<span class="hljs-string">'Worker: Posting message back to main script'</span>);
+            postMessage(workerResult);
         }
-        Object.defineProperty(exports, <span class="hljs-string">'__esModule'</span>, { value: true });
-    }));<span class="hljs-string">"</span></code></pre>
+    };
+    exports.multiply = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(a, b)</span> {</span>
+        <span class="hljs-keyword">return</span> a * b;
+    };
+
+    Object.defineProperty(exports, <span class="hljs-string">'__esModule'</span>, { value: true });
+}));<span class="hljs-string">"</span></code></pre>
+			<a href="#tbd" id="tbd" style="color: inherit; text-decoration: none;">
+				<h1>TBD</h1>
+			</a>
+			<pre><code>— Resolve common references
+
+Example:
+
+let commonObject = {
+    hello: <span class="hljs-string">'world'</span>
+}
+
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">test1</span><span class="hljs-params">()</span> {}</span>
+test1.commonObject = commonObject;
+
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">test2</span><span class="hljs-params">()</span> {}</span>
+test2.commonObject = commonObject;
+
+let umdModule = asUmdModule(
+    {
+        name: <span class="hljs-string">"test1"</span>,
+        exports: test1
+    }, {
+        name: <span class="hljs-string">"test2"</span>,
+        exports: test2
+    }
+);
+
+Actual output:
+<span class="hljs-string">"(function (global, factory) {
+        typeof exports === '</span>object' &amp;&amp; typeof module !== <span class="hljs-string">'undefined'</span> ? factory(exports) :
+        typeof define === <span class="hljs-string">'function'</span> &amp;&amp; define.amd ? define([<span class="hljs-string">'exports'</span>], factory) :
+        (<span class="hljs-keyword">global</span> = <span class="hljs-keyword">global</span> || self, factory(<span class="hljs-keyword">global</span>));
+    }(this, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(exports)</span> { '<span class="hljs-title">use</span> <span class="hljs-title">strict</span>';</span>
+        exports.test1 = (<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span>{</span>
+            var test1 = <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">test1</span><span class="hljs-params">()</span> {};</span>
+            test1.commonObject = {
+                hello: \<span class="hljs-string">"world\"
+            };
+            return test1;
+        }());
+        exports.test2 = (function(){
+            var test2 = function test2() {};
+            test2.commonObject = {
+                hello: \"world\"
+            };
+            return test2;
+        }());
+
+        Object.defineProperty(exports, '</span>__esModule', { value: true });
+}));<span class="hljs-string">"
+
+
+Expected output:
+"</span>(<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(global, factory)</span> {</span>
+        typeof exports === <span class="hljs-string">'object'</span> &amp;&amp; typeof module !== <span class="hljs-string">'undefined'</span> ? factory(exports) :
+        typeof define === <span class="hljs-string">'function'</span> &amp;&amp; define.amd ? define([<span class="hljs-string">'exports'</span>], factory) :
+        (<span class="hljs-keyword">global</span> = <span class="hljs-keyword">global</span> || self, factory(<span class="hljs-keyword">global</span>));
+    }(this, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(exports)</span> { '<span class="hljs-title">use</span> <span class="hljs-title">strict</span>';</span>
+        commonObject = {
+            hello: \<span class="hljs-string">"world\"
+        };
+        exports.test1 = (function(){
+            var test1 = function test1() {};
+            test1.commonObject = commonObject;
+            return test1;
+        }());
+        exports.test2 = (function(){
+            var test2 = function test2() {};
+            test2.commonObject = commonObject;
+            return test2;
+        }());
+
+        Object.defineProperty(exports, '</span>__esModule', { value: true });
+}));<span class="hljs-string">"
+</span></code></pre>
 			<a href="#rights-and-agreements" id="rights-and-agreements" style="color: inherit; text-decoration: none;">
 				<h1>Rights and Agreements</h1>
 			</a>
@@ -2479,7 +2565,7 @@ img {
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/lopatnov/as-umd-module/blob/412cfec/src/as-umd-module.ts#L8">as-umd-module.ts:8</a></li>
+								<li>Defined in <a href="https://github.com/lopatnov/as-umd-module/blob/6677da5/src/as-umd-module.ts#L8">as-umd-module.ts:8</a></li>
 							</ul>
 						</aside>
 						<h4 class="tsd-parameters-title">Parameters</h4>
