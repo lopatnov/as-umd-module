@@ -53,11 +53,9 @@ let umdModule = asUmdModule({
 });
 
 console.log(umdModule);
-```
 
+/***
 Expected result of umdModule variable is string like
-
-```typescript
 "(function (global, factory) {
         typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports) :
         typeof define === 'function' && define.amd ? define(['exports'], factory) :
@@ -80,6 +78,8 @@ Expected result of umdModule variable is string like
 
     Object.defineProperty(exports, '__esModule', { value: true });
 }));"
+
+***/
 ```
 
 # TBD
