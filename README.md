@@ -4,23 +4,25 @@ A TypeScript library. It converts JavaScript values to a UMD formatted string.
 
 # Install
 
-```
+```shell
 npm i as-umd-module
 ```
 
 ## Import package to the project
 
-```
+```typescript
 import asUmdModule from "as-umd-module";
 ```
 
 ## Convert JavaScript values into umd module string
 
-**asUmdModule(...values: IModuleValue[]): string**
+```typescript
+asUmdModule(...values: IModuleValue[]) => string
+```
 
 where
 
-```
+```typescript
 interface IModuleValue {
   name: string;
   exports: any;
@@ -29,7 +31,7 @@ interface IModuleValue {
 
 Example of using:
 
-```
+```typescript
 let umdModule = asUmdModule({
     name: "onmessage",
     exports: function(e) {
@@ -55,7 +57,7 @@ console.log(umdModule);
 
 Expected result of umdModule variable is string like
 
-```
+```typescript
 "(function (global, factory) {
         typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports) :
         typeof define === 'function' && define.amd ? define(['exports'], factory) :
@@ -82,11 +84,11 @@ Expected result of umdModule variable is string like
 
 # TBD
 
-```
 — Resolve common references
 
 Example:
 
+```typescript
 let commonObject = {
     hello: 'world'
 }
@@ -106,8 +108,9 @@ let umdModule = asUmdModule(
         exports: test2
     }
 );
-
+```
 Actual output:
+```typescript
 "(function (global, factory) {
         typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports) :
         typeof define === 'function' && define.amd ? define(['exports'], factory) :
@@ -130,9 +133,10 @@ Actual output:
 
         Object.defineProperty(exports, '__esModule', { value: true });
 }));"
-
+```
 
 Expected output:
+```typescript
 "(function (global, factory) {
         typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports) :
         typeof define === 'function' && define.amd ? define(['exports'], factory) :
