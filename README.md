@@ -1,18 +1,25 @@
 # as-umd-module
 
+[![NPM version](https://badge.fury.io/js/as-umd-module.svg)](https://badge.fury.io/js/as-umd-module)
+![License](https://img.shields.io/github/license/lopatnov/jsToString)
+[![Build Status](https://travis-ci.org/lopatnov/jsToString.png?branch=master)](https://travis-ci.org/lopatnov/jsToString)
+[![Twitter](https://img.shields.io/twitter/url?url=https%3A%2F%2Fwww.npmjs.com%2Fpackage%2Fas-umd-module)](https://twitter.com/intent/tweet?text=Wow:&url=https%3A%2F%2Fwww.npmjs.com%2Fpackage%2Fas-umd-module)
+
 A TypeScript library. It converts JavaScript values to a UMD formatted string.
 
 # Install
 
 Node:
 
-[npmjs repository](//www.npmjs.com/package/as-umd-module)
+[NPM repository](//www.npmjs.com/package/as-umd-module)
+
+[![https://nodei.co/npm/as-umd-module.png?downloads=true&downloadRank=true&stars=true](https://nodei.co/npm/as-umd-module.png?downloads=true&downloadRank=true&stars=true)](https://www.npmjs.com/package/as-umd-module)
 
 ```shell
-npm i as-umd-module
+npm install as-umd-module
 ```
 
-[github repository](//github.com/lopatnov/as-umd-module/packages)
+[GitHub repository](//github.com/lopatnov/as-umd-module/packages)
 
 ```shell
 npm install @lopatnov/as-umd-module
@@ -101,6 +108,13 @@ Expected result of umdModule variable is string like
 
 ***/
 ```
+
+# Demo
+
+See, how it's working: [https://runkit.com/lopatnov/as-umd-module-demo](https://runkit.com/lopatnov/as-umd-module-demo)
+
+Test it with a runkit: [https://npm.runkit.com/as-umd-module](https://npm.runkit.com/as-umd-module)
+
 
 # TBD
 
