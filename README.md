@@ -28,7 +28,7 @@ npm install @lopatnov/as-umd-module
 Browser:
 
 ```html
-<script src="<path to library>/as-umd-module.js"></script>
+<script src="//lopatnov.github.io/as-umd-module/dist/as-umd-module.js"></script>
 ```
 
 ## Import package to the project
