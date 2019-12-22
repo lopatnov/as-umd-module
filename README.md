@@ -24,13 +24,13 @@ npm install @lopatnov/as-umd-module
 ## Import package to the project
 
 ```typescript
-import asUmdModule from "as-umd-module";
+import asUmdModule from "@lopatnov/as-umd-module";
 ```
 
 or
 
 ```javascript
-var asUmdModule = require("as-umd-module")
+var asUmdModule = require("@lopatnov/as-umd-module")
 ```
 
 ## Convert JavaScript values into umd module string
