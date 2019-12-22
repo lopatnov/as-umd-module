@@ -7,7 +7,7 @@
 
 A TypeScript library. It converts JavaScript values to a UMD formatted string.
 
-# Install
+## Install
 
 [![https://nodei.co/npm/%40lopatnov%2Fas-umd-module.png?downloads=true&downloadRank=true&stars=true](https://nodei.co/npm/%40lopatnov%2Fas-umd-module.png?downloads=true&downloadRank=true&stars=true)](https://www.npmjs.com/package/@lopatnov/as-umd-module)
 
@@ -26,7 +26,9 @@ npm install @lopatnov/as-umd-module
 ```typescript
 import asUmdModule from "as-umd-module";
 ```
+
 or
+
 ```javascript
 var asUmdModule = require("as-umd-module")
 ```
@@ -99,18 +101,18 @@ Expected result of umdModule variable is string like
 ***/
 ```
 
-# Demo
+## Demo
 
 See, how it's working: [https://runkit.com/lopatnov/as-umd-module-demo](https://runkit.com/lopatnov/as-umd-module-demo)
 
 Test it with a runkit: [https://npm.runkit.com/as-umd-module](https://npm.runkit.com/as-umd-module)
 
 
-# TBD
+## TBD
 
 — [Resolve common references](https://github.com/lopatnov/as-umd-module/issues/1)
 
-# Rights and Agreements
+## Rights and Agreements
 
 License [Apache-2.0](https://github.com/lopatnov/as-umd-module/blob/master/LICENSE)
 
