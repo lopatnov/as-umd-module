@@ -9,7 +9,7 @@ A TypeScript library. It converts JavaScript values to a UMD formatted string.
 
 ## Install
 
-[![https://nodei.co/npm/%40lopatnov%2Fas-umd-module.png?downloads=true&downloadRank=true&stars=true](https://nodei.co/npm/%40lopatnov%2Fas-umd-module.png?downloads=true&downloadRank=true&stars=true)](https://www.npmjs.com/package/@lopatnov/as-umd-module)
+[![https://nodei.co/npm/@lopatnov/as-umd-module.png?downloads=true&downloadRank=true&stars=true](https://nodei.co/npm/@lopatnov/as-umd-module.png?downloads=true&downloadRank=true&stars=true)](https://www.npmjs.com/package/@lopatnov/as-umd-module)
 
 ```shell
 npm install @lopatnov/as-umd-module
