@@ -105,7 +105,7 @@ Expected result of umdModule variable is string like
 
 See, how it's working: [https://runkit.com/lopatnov/as-umd-module-demo](https://runkit.com/lopatnov/as-umd-module-demo)
 
-Test it with a runkit: [https://npm.runkit.com/as-umd-module](https://npm.runkit.com/as-umd-module)
+Test it with a runkit: [https://npm.runkit.com/%40lopatnov%2Fas-umd-module](https://npm.runkit.com/%40lopatnov%2Fas-umd-module)
 
 ## TBD
 
