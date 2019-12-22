@@ -3,7 +3,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-var javascripttostring_1 = __importDefault(require("javascripttostring"));
+var javascripttostring_1 = __importDefault(require("@lopatnov/javascripttostring"));
 function asUmdModule() {
     var values = [];
     for (var _i = 0; _i < arguments.length; _i++) {
