@@ -1,4 +1,4 @@
-import stringify from 'javascripttostring';
+import stringify from '@lopatnov/javascripttostring';
 
 export interface IModuleValue {
   name: string;
