@@ -111,4 +111,4 @@ Test it with a runkit: [https://npm.runkit.com/%40lopatnov%2Fas-umd-module](http
 
 License [Apache-2.0](https://github.com/lopatnov/as-umd-module/blob/master/LICENSE)
 
-Copyright 2019 Oleksandr Lopatnov
+Copyright 2019-2020 Oleksandr Lopatnov
