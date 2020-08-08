@@ -1,3 +1,0 @@
-var typedoc = typedoc || {};
-            typedoc.search = typedoc.search || {};
-            typedoc.search.data = {"kinds":{"64":"Function","256":"Interface","1024":"Property"},"rows":[{"id":0,"kind":256,"name":"IModuleValue","url":"interfaces/imodulevalue.html","classes":"tsd-kind-interface"},{"id":1,"kind":1024,"name":"name","url":"interfaces/imodulevalue.html#name","classes":"tsd-kind-property tsd-parent-kind-interface","parent":"IModuleValue"},{"id":2,"kind":1024,"name":"exports","url":"interfaces/imodulevalue.html#exports","classes":"tsd-kind-property tsd-parent-kind-interface","parent":"IModuleValue"},{"id":3,"kind":64,"name":"asUmdModule","url":"globals.html#asumdmodule","classes":"tsd-kind-function"}]};

@@ -1,7 +1,7 @@
 (function (global, factory) {
     typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory() :
     typeof define === 'function' && define.amd ? define(factory) :
-    (global = global || self, global.asUmdModule = factory());
+    (global = typeof globalThis !== 'undefined' ? globalThis : global || self, global.asUmdModule = factory());
 }(this, (function () { 'use strict';
 
     var types = {}, typesToString = types.toString, buildInList = [
@@ -344,7 +344,13 @@
         var moduleBody = "";
         for (var _a = 0, values_1 = values; _a < values_1.length; _a++) {
             var mv = values_1[_a];
-            moduleBody += "exports." + mv.name + " = " + javaScriptToString(mv.exports) + ";\n";
+            var exps = mv.exports;
+            if (exps !== undefined) {
+                moduleBody += "exports." + mv.name + " = " + javaScriptToString(exps, mv.options) + ";\n";
+            }
+            else {
+                moduleBody += "var " + mv.name + " = " + javaScriptToString(mv.declare, mv.options) + ";\n";
+            }
         }
         return "(function (global, factory) {\n        typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports) :\n        typeof define === 'function' && define.amd ? define(['exports'], factory) :\n        (global = global || self, factory(global));\n    }(this, function (exports) { 'use strict';\n        " + moduleBody + "\n        Object.defineProperty(exports, '__esModule', { value: true });\n    }));";
     }

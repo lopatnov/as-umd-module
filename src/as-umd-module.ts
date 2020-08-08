@@ -1,15 +1,27 @@
-import stringify from '@lopatnov/javascripttostring';
+import stringify, { IJ2SOptions } from '@lopatnov/javascripttostring';
 
 export interface IModuleValue {
   name: string;
   exports: any;
+  options?: IJ2SOptions;
 }
 
-function asUmdModule(...values: IModuleValue[]): string {
+export interface IInnerValue {
+  name: string;
+  declare: any;
+  options?: IJ2SOptions;
+}
+
+function asUmdModule(...values: Array<IInnerValue | IModuleValue>): string {
   let moduleBody = "";
 
   for (let mv of values) {
-      moduleBody += `exports.${mv.name} = ${stringify(mv.exports)};\n`
+    const exps = (mv as IModuleValue).exports;
+    if (exps !== undefined) {
+      moduleBody += `exports.${mv.name} = ${stringify(exps, mv.options)};\n`
+    } else {
+      moduleBody += `var ${mv.name} = ${stringify((mv as IInnerValue).declare, mv.options)};\n`
+    }
   }
 
   return `(function (global, factory) {
