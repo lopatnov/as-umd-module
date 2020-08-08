@@ -107,10 +107,6 @@ See, how it's working: [https://runkit.com/lopatnov/as-umd-module-demo](https://
 
 Test it with a runkit: [https://npm.runkit.com/%40lopatnov%2Fas-umd-module](https://npm.runkit.com/%40lopatnov%2Fas-umd-module)
 
-## TBD
-
-— [Resolve common references](https://github.com/lopatnov/as-umd-module/issues/1)
-
 ## Rights and Agreements
 
 License [Apache-2.0](https://github.com/lopatnov/as-umd-module/blob/master/LICENSE)
